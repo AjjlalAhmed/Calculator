@@ -1,0 +1,128 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+}
+@mixin grid-position($coloum, $row) {
+  grid-column: $coloum;
+  grid-row: $row;
+}
+#container {
+  background: #1d2225;
+  display: flex;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+  #wraper {
+    display: grid;
+    width: 300px;
+    overflow: hidden;
+    box-shadow: 1px 1px 10px #000;
+    .secondary-screen {
+      @include grid-position(#{1 / 2}, #{1 / 2});
+      background-color: #fff;
+      padding: 5px 10px;
+      font-size: 1.2rem;
+      color: #222;
+      text-align: right;
+      letter-spacing: 1px;
+      border: 0px solid #222;
+      min-height: 5vh;
+    }
+    .primary-screen {
+      @include grid-position(#{1 / 2}, #{2 / 3});
+      background-color: #fff;
+      padding: 5px 10px;
+      font-size: 1.5rem;
+      color: #222;
+      text-align: right;
+      letter-spacing: 1px;
+      border: 0px solid #222;
+      min-height: 7vh;
+      word-break: break-all;
+    }
+    .keys {
+      @include grid-position(#{1 / 2}, #{3 / 4});
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-template-rows: auto;
+      overflow: hidden;
+      border: 0px solid #222;
+      .keys:focus {
+        border: 1px solid pink;
+      }
+      button {
+        border-bottom: 1px solid rgba(253, 251, 251, 0.1);
+        border-left: 1px solid rgba(238, 235, 235, 0.1);
+        border-right: 1px solid rgba(238, 235, 235, 0.1);
+        border-top: 0px solid transparent;
+        padding: 15px;
+        color: #fff;
+        font-size: 1.5rem;
+        &:focus {
+          outline: none;
+          box-shadow: none;
+        }
+        &:active {
+          background: #c0b699;
+          outline: none;
+          box-shadow: none;
+        }
+      }
+      .num-key {
+        background: #1e2326;
+      }
+      .operator-key {
+        background: #5e4bb6;
+      }
+      .del-key {
+        background: #1e2326;
+        @include grid-position(#{3 / 4}, #{1 / 2});
+      }
+      .ans-key {
+        background: #fec20c;
+        color: #1e2326;
+        @include grid-position(#{3 / 5}, #{5 / 6});
+      }
+      .clear-key {
+        background: #df1308;
+        @include grid-position(#{1 / 3}, #{1 / 2});
+      }
+      .one {
+        @include grid-position(#{1 / 2}, #{4 / 5});
+      }
+      .two {
+        @include grid-position(#{2 / 3}, #{4 / 5});
+      }
+      .three {
+        @include grid-position(#{3 / 4}, #{4 / 5});
+      }
+      .four {
+        @include grid-position(#{1 / 2}, #{3 / 4});
+      }
+      .five {
+        @include grid-position(#{2 / 3}, #{3 / 4});
+      }
+      .six {
+        @include grid-position(#{3 / 4}, #{3 / 4});
+      }
+      .seven {
+        @include grid-position(#{1 / 2}, #{2 / 3});
+      }
+      .eight {
+        @include grid-position(#{2 / 3}, #{2 / 3});
+      }
+      .nine {
+        @include grid-position(#{3 / 4}, #{2 / 3});
+      }
+      .zero {
+        @include grid-position(#{1 / 2}, #{5 / 6});
+      }
+      .dot {
+        @include grid-position(#{2 / 3}, #{5 / 6});
+      }
+    }
+  }
+}
